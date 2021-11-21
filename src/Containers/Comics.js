@@ -15,7 +15,7 @@ const Comics = ({ title, setTitle }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/comics" + setFilter(title)
+          "https://pascal-marvel-api.herokuapp.com/comics" + setFilter(title)
         );
 
         setData(response.data);

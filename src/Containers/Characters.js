@@ -14,7 +14,8 @@ const Characters = ({ name, setName }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/characters" + setFilter2(name)
+          "https://pascal-marvel-api.herokuapp.com/characters" +
+            setFilter2(name)
         );
         setData(response.data);
         setIsLoading(false);
