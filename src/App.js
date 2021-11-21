@@ -19,6 +19,10 @@ function App() {
       <Header />
       <Routes>
         <Route
+          path={"/"}
+          element={<Comics title={title} setTitle={setTitle} />}
+        />
+        <Route
           path={"/characters"}
           element={
             <Characters
