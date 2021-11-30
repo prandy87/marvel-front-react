@@ -11,8 +11,8 @@ import Character from "./Containers/Character";
 function App() {
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(100);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [postPerPage] = useState(100);
 
   return (
     <Router>
@@ -28,8 +28,8 @@ function App() {
             <Characters
               name={name}
               setName={setName}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
+              // currentPage={currentPage}
+              // setCurrentPage={setCurrentPage}
             />
           }
         />

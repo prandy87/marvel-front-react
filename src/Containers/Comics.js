@@ -4,18 +4,33 @@ import { useState, useEffect } from "react";
 const Comics = ({ title, setTitle }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   const setFilter = (title) => {
     let titleGo = `?title=${title}`;
     return titleGo;
   };
-  console.log(setFilter(title));
+
+  const pageFilter = (page) => {
+    let pageGo = `&page=${page}`;
+    return pageGo;
+  };
+
+  const handleNextPage = () => {
+    return setPage(page + 1);
+  };
+
+  const handlePrevPage = () => {
+    return setPage(page - 1);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://pascal-marvel-api.herokuapp.com/comics" + setFilter(title)
+          "https://pascal-marvel-api.herokuapp.com/comics" +
+            setFilter(title) +
+            pageFilter(page)
         );
 
         setData(response.data);
@@ -25,10 +40,18 @@ const Comics = ({ title, setTitle }) => {
       }
     };
     fetchData();
-  }, [title]);
+  }, [title, page]);
 
   return isLoading ? (
-    <span>Loading list of comic books...</span>
+    <body
+      style={{
+        backgroundColor: "rgb(29, 27, 27)",
+        height: "1000px",
+        color: "white",
+      }}
+    >
+      Loading all characters...
+    </body>
   ) : (
     <>
       <div className="container">
@@ -42,6 +65,25 @@ const Comics = ({ title, setTitle }) => {
               }}
             />
           </div>
+          <div className="page-chooser">
+            {page !== 1 && (
+              <button
+                onClick={() => {
+                  handlePrevPage();
+                }}
+              >
+                Previous Page
+              </button>
+            )}
+            <button
+              onClick={() => {
+                handleNextPage();
+              }}
+            >
+              Next Page
+            </button>
+          </div>
+
           {data.results.map((comics) => {
             return (
               <>
