@@ -50,7 +50,7 @@ const Comics = ({ title, setTitle }) => {
         color: "white",
       }}
     >
-      Loading all characters...
+      Loading all Comics...
     </body>
   ) : (
     <>
@@ -102,6 +102,24 @@ const Comics = ({ title, setTitle }) => {
               </>
             );
           })}
+          <div className="page-chooser">
+            {page !== 1 && (
+              <button
+                onClick={() => {
+                  handlePrevPage();
+                }}
+              >
+                Previous Page
+              </button>
+            )}
+            <button
+              onClick={() => {
+                handleNextPage();
+              }}
+            >
+              Next Page
+            </button>
+          </div>
         </div>
       </div>
     </>

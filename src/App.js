@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route
           path={"/"}
-          element={<Comics title={title} setTitle={setTitle} />}
+          element={<Characters name={name} setName={setName} />}
         />
         <Route
           path={"/characters"}
