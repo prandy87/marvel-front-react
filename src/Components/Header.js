@@ -6,7 +6,9 @@ const Header = () => {
     <>
       <div className="header">
         <span className="logo-container">
-          <img src={logo} alt="Marvel" />
+          <Link to={"/"}>
+            <img src={logo} alt="Marvel" />
+          </Link>
         </span>
         <span className="header-clickers">
           <Link to={"/characters"}>
@@ -14,6 +16,9 @@ const Header = () => {
           </Link>
           <Link to={"/comics"}>
             <button>All Marvel Comic Books</button>
+          </Link>
+          <Link to={"/favourites"}>
+            <button style={{ marginLeft: "300px" }}>My Favourites</button>
           </Link>
         </span>
       </div>

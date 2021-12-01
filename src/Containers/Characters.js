@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import image from "../Assets/Images/question-marks.jpeg";
 
-const Characters = ({ name, setName }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+const Characters = ({ name, setName, addFav, heart, cross }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -110,6 +112,20 @@ const Characters = ({ name, setName }) => {
                       )}
                     </div>
                   </Link>
+
+                  <span
+                    style={{
+                      color: "white",
+                      textAlign: "justify",
+                      cursor: "pointer",
+                    }}
+                    onClick={() => {
+                      addFav(characters._id);
+                    }}
+                  >
+                    Add to favourites{" "}
+                    <FontAwesomeIcon icon={["far", "heart"]} />
+                  </span>
                 </div>
               </>
             );
