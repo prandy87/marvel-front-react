@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Comics = ({ title, setTitle }) => {
+const Comics = ({ title, setTitle, addFavCom }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -98,6 +99,23 @@ const Comics = ({ title, setTitle }) => {
                   ) : (
                     <p>No description available.</p>
                   )}
+                  <span
+                    style={{
+                      color: "white",
+                      textAlign: "center",
+                      cursor: "pointer",
+                      fontFamily: "Bangers",
+                      fontSize: "18px",
+                      marginTop: "-22px",
+                      position: "absolute",
+                    }}
+                    onClick={() => {
+                      addFavCom(comics._id);
+                    }}
+                  >
+                    Add to favourites{" "}
+                    <FontAwesomeIcon icon={["far", "heart"]} />
+                  </span>
                 </div>
               </>
             );

@@ -1,7 +1,7 @@
 import logo from "../Assets/Images/Marvel_Logo.svg.png";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ cookie }) => {
   return (
     <>
       <div className="header">
@@ -17,9 +17,21 @@ const Header = () => {
           <Link to={"/comics"}>
             <button>All Marvel Comic Books</button>
           </Link>
-          <Link to={"/favourites"}>
-            <button style={{ marginLeft: "300px" }}>My Favourites</button>
-          </Link>
+          {cookie ? (
+            <button className="dropdown" style={{ marginLeft: "300px" }}>
+              My Favourites
+              <div className="dropdown-content">
+                <Link to={"/favourites"}>
+                  <p>Characters</p>
+                  <span></span>
+                </Link>
+                <span></span>
+                <Link to={"/favouritescom"}>
+                  <p>Comics</p>
+                </Link>
+              </div>
+            </button>
+          ) : null}
         </span>
       </div>
     </>

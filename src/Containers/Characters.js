@@ -5,7 +5,7 @@ import image from "../Assets/Images/question-marks.jpeg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Characters = ({ name, setName, addFav, heart, cross }) => {
+const Characters = ({ name, setName, addFav }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -48,7 +48,7 @@ const Characters = ({ name, setName, addFav, heart, cross }) => {
   }, [name, page]);
 
   return isLoading ? (
-    <body
+    <div
       style={{
         backgroundColor: "rgb(29, 27, 27)",
         height: "1000px",
@@ -56,7 +56,7 @@ const Characters = ({ name, setName, addFav, heart, cross }) => {
       }}
     >
       Loading all characters...
-    </body>
+    </div>
   ) : (
     <>
       <div>
@@ -112,12 +112,17 @@ const Characters = ({ name, setName, addFav, heart, cross }) => {
                       )}
                     </div>
                   </Link>
-
                   <span
                     style={{
-                      color: "white",
-                      textAlign: "justify",
+                      color: "#e93f33",
+                      textAlign: "center",
                       cursor: "pointer",
+                      fontFamily: "Bangers",
+                      fontSize: "18px",
+                      marginTop: "-15px",
+                      marginBottom: "40px",
+                      marginLeft: "5%",
+                      position: "absolute",
                     }}
                     onClick={() => {
                       addFav(characters._id);
